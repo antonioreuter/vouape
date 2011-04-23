@@ -1,6 +1,6 @@
 Vouape::Application.routes.draw do
 
-  #devise_for :users
+  devise_for :users
 
   match '/vouape/map' => 'vouape#map'
 
