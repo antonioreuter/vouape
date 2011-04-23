@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @client.name %>
+</p>
+
+<p>
+  <b>Address:</b>
+  <%= @client.address %>
+</p>
+
+<p>
+  <b>Phone 1:</b>
+  <%= @client.phone_1 %>
+</p>
+
+<p>
+  <b>Phone 2:</b>
+  <%= @client.phone_2 %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @client.user_id %>
+</p>
+
+<%= link_to 'Promotions',  promotions_path(:client_id => @client.id) %>
+
+<%= link_to 'Edit', edit_client_path(@client) %> |
+<%= link_to 'Back', clients_path %>

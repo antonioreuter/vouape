@@ -1,0 +1,23 @@
+
+
+    <div id="columns">
+      <div id="query">
+        <div id="query_content">
+          <%= render("query") %>
+
+
+        </div>
+
+
+      </div>
+
+
+      <div id="mapa">
+        <div id="main_mapa">
+          <%= render(:partial => "map", :locals =>{:data => "/promotions.xml"} ) %>
+        </div>
+      </div>
+
+    </div>
+
+

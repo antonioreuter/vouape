@@ -1,0 +1,19 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  description: MyString
+  address: MyString
+  price: 9.99
+  latitude: MyString
+  longitude: MyString
+  client_id: 1
+
+two:
+  title: MyString
+  description: MyString
+  address: MyString
+  price: 9.99
+  latitude: MyString
+  longitude: MyString
+  client_id: 1

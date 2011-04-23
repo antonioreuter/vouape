@@ -1,0 +1,43 @@
+<h1>Listing promotions</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Street</th>
+    <th>City</th>
+    <th>State</th>
+    <th>Country</th>
+    <th>Postal Code</th>
+    <th>Price</th>
+    <th>Latitude</th>
+    <th>Longitude</th>
+    <th>Client</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @promotions.each do |promotion| %>
+  <tr>
+    <td><%= promotion.title %></td>
+    <td><%= promotion.description %></td>
+    <td><%= promotion.street %></td>
+    <td><%= promotion.locality %></td>
+    <td><%= promotion.region %></td>
+    <td><%= promotion.country %></td>
+    <td><%= promotion.postal_code %></td>
+    <td><%= promotion.price %></td>
+    <td><%= promotion.latitude %></td>
+    <td><%= promotion.longitude %></td>
+    <td><%= promotion.client_id %></td>
+    <td><%= link_to 'Show', promotion_path(promotion) %></td>
+    <td><%= link_to 'Edit', edit_promotion_path(promotion) %></td>
+    <td><%= link_to 'Destroy', promotion_path(promotion), :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Promotion', new_promotion_path(:client_id => @client_id) %>

@@ -1,0 +1,23 @@
+
+<% if promotions %>
+  <div id="inner_promotions" class="accordion_promotion">
+
+
+    <% for promotion in promotions   %>
+      <h3><a href="#"><%= promotion.title %> - <%= number_to_currency(promotion.price) %></a></h3>
+
+      <div>
+        <p>
+          <%=simple_format  promotion.description%>
+        </p>
+      </div>
+    <% end  %>
+  </div>
+  <%= paginate promotions, :remote => true %>
+
+
+
+
+
+<% end  %>
+

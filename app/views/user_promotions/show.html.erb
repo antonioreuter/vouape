@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @user_promotion.user_id %>
+</p>
+
+<p>
+  <b>Promotion:</b>
+  <%= @user_promotion.promotion_id %>
+</p>
+
+<p>
+  <b>Comments:</b>
+  <%= @user_promotion.comments %>
+</p>
+
+
+<%= link_to 'Edit', edit_user_promotion_path(@user_promotion) %> |
+<%= link_to 'Back', user_promotions_path %>

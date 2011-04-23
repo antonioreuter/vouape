@@ -1,0 +1,6 @@
+#Instalar para calcular os pontos do mapa do google.
+gem install graticule
+
+
+GoogleMap Api Key do site www.VouApe.com
+"ABQIAAAAN_dZ6eBmRapx8KxWvrwp0xQopUM8D0-8y2a0i3TEGcar9PP4FhRXLdtF1zd6feGvu8AnxxSqtYVrvQ"

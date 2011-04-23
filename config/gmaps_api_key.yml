@@ -1,0 +1,13 @@
+development:
+  google_key: ABQIAAAAnfs7bKE82qgb3Zc2YyS-oBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSySz_REpPq-4WZA27OwgbtyR3VcA
+  yahoo_key: pPDCgjnV34FJ3TxysU9K.FpFYQ3A_QYJ4VrAJQuyFcFv91Hf0r3PU5tr3SYBhMvOoM__
+
+
+test:
+  google_key: ABQIAAAAnfs7bKE82qgb3Zc2YyS-oBT2yXp_ZAY8_ufC3CFXhHIE1NvwkxSySz_REpPq-4WZA27OwgbtyR3VcA
+  yahoo_key: pPDCgjnV34FJ3TxysU9K.FpFYQ3A_QYJ4VrAJQuyFcFv91Hf0r3PU5tr3SYBhMvOoM__
+
+production:
+  google_key: ABQIAAAAN_dZ6eBmRapx8KxWvrwp0xQopUM8D0-8y2a0i3TEGcar9PP4FhRXLdtF1zd6feGvu8AnxxSqtYVrvQ
+  yahoo_key: dj0yJmk9MUphRktMUUZZTVJmJmQ9WVdrOVIzbHlWREl4TTJVbWNHbzlPVGsyTnprM09UWXkmcz1jb25zdW1lcnNlY3JldCZ4PTFl
+ 

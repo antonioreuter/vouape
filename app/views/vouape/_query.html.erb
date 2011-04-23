@@ -1,0 +1,42 @@
+<%= form_tag url_for(:action => 'find_promotions' ),  :method => "get", :remote => true do%>
+
+  <div>
+    <label for="Localizacao" >Localização:</label><br/>
+    <%= text_area_tag :localizacao, params[:localizacao] , :cols => 40, :rows => 3 , :class => "field"%>
+  </div>
+
+  <br/>
+
+  <div>
+    <label for="Distancia" >Distância:
+      <input type="text" id="label_distance" style="border:0; color:#f6931f; font-weight:bold; background-color: #FFFFFF;" disabled/>
+
+    </label><br/>
+
+
+    <div id="slider-range-max"></div>
+
+
+    <%= hidden_field_tag :distance, params[:distance] %>
+    <%= hidden_field_tag :ref_latitude %>
+    <%= hidden_field_tag :ref_longitude %>
+
+
+  </div>
+
+
+
+  <div align="right">
+    <br/>
+    
+    <%= submit_tag 'Pesquisar', :id => "btnPesquisar", :remote => true, :onclick => "codeAddress();"%>
+  </div>
+<% end %>
+<br/>
+
+<div id="promotions">
+  
+    <%= render :partial => "promotion", :locals => {:promotions => @promotions} %>
+  
+</div>
+

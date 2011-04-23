@@ -1,0 +1,45 @@
+<div class="formulario">
+
+  <%= form_for(@user) do |f| %>
+    <% if @user.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+        <ul>
+          <% @user.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <fieldset>
+      <legend>Enter User Details</legend>
+
+      <div class="field">
+        <%= f.label :login, 'Email:' %>
+        <%= f.text_field :login, :size => 150 %>
+      </div>
+      <div class="field">
+        <%= f.label :password, 'Password:' %>
+        <%= f.password_field :password , :size => 40 %>
+      </div>
+      <div class="field">
+        <%= f.label :password_confirmation, 'Confirm:' %>
+        <%= f.password_field :password_confirmation , :size => 40 %>
+      </div>
+      <div class="field">
+        <%= f.label :secret_phrase, 'Secret Phrase:' %>
+        <%= f.text_field :secret_phrase, :size => 150 %>
+      </div>
+      <div class="field">
+        <%= f.label :user_type, 'User Type:' %>
+        <%= f.select :user_type, User::USER_TYPES,
+          :prompot => 'Select a user type' %>
+      </div>
+    </fieldset>
+    <div class="actions">
+      <%= f.submit 'Save'%>
+    </div>
+  <% end %>
+</div>

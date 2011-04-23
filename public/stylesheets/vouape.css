@@ -1,0 +1,112 @@
+#vouape{
+    display:block;
+    width:1240px;
+    margin: 0px auto;    
+    //background-color: slateblue;
+}
+
+#header{
+    height:108px;
+    width:100%;
+    //background-color:gray;
+}
+
+#header #signup_login{
+    width:400px;
+    height: 40px;
+    text-align:right;
+    //background-color:white;
+    float: right;
+    margin-top:65px;
+    margin-right:0px;
+    margin-bottom:0px;
+}
+
+#header #signup_login a{
+    width:100%;
+}
+
+#columns{
+    width:100%;
+    float:left;
+    height: 540px;
+    //background-color:black;
+}
+
+#columns #query{
+    float:left;
+    width:30%;
+    height: 100%;
+    //background-color:yellow;
+}
+
+#columns #query #query_content{
+    margin-left: 18px;
+    margin-right:18px;
+    margin-top: 18px;
+    //background-color: goldenrod;
+}
+
+#columns #mapa{
+    float:left;
+    width:70%;
+    height: 100%;
+    //background-color:green;
+}
+
+#columns #mapa #main_mapa{
+    margin-top:18px;
+    margin-left: 18px;
+    margin-right:18px;
+    margin-bottom:18px;
+    height: 80%;
+    //background-color: darkgreen;
+}
+
+#footer{
+    width:100%;
+    height:50px;
+    //background-color:blue;
+}
+
+.clear{
+    clear:both
+}
+
+#googlemap{
+    border: 1px solid #979797;
+    width: 100%;
+    height: 100%;
+    background-color: #FFFFFF;
+    padding: 10px;
+}
+
+
+#googlemap .info {
+width: 250px;
+}
+
+.textClass {
+    color:#f6931f;
+    font-family: verdana, arial, helvetica, sans-serif;
+    font-size: 12px;
+}
+
+.field {
+    color: #1c94c4;
+    font-weight: bold
+}
+
+.error_message{
+    width: 50%;
+    height: 25px;
+    text-align: center;
+    margin-left: 30%;
+    margin-right: 10%;
+}
+
+.ajaxStatus{
+    float:right;
+    height: 15px;
+    margin-left: 80%;
+}

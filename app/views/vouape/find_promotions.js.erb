@@ -1,0 +1,65 @@
+$("#msg_error1").remove();
+$("#msg_notice1").remove();
+
+
+$("#div_msg_notice").hide();
+$("#div_msg_error").hide();
+$("#promotions").hide();
+clearOverlays();
+
+<%
+if (@promotions != nil && @promotions.size > 0)
+  indice = 0
+%>
+  $("#promotions").show();
+
+  //Adiciona o ponto de referencia...
+  addPoints("<%= escape_javascript(indice.to_s) %>",$("#ref_latitude").val(), $("#ref_longitude").val(), "Start position.", "<b> Enjoy! </b>");
+  <%
+
+  indice = indice + 1
+  @promotions.each do |promotion|
+  %>
+    addPoints("<%= escape_javascript(indice.to_s) %>", "<%= escape_javascript(promotion.latitude) %>",
+    "<%= escape_javascript(promotion.longitude) %>", "<%= escape_javascript(promotion.title) %>",
+    "<%= escape_javascript(promotion.description) %>")
+    <%
+    indice = indice + 1
+  end
+%>
+
+  fit_map();
+
+  $("#promotions").html("<%= escape_javascript( render(:partial => 'promotion', :locals => {:promotions => @promotions}) )%>")
+
+  load_promotion_theme();
+<%
+else
+  if (flash[:error]) %>
+
+    $("#div_msg_error").show();
+    $("#div_msg_error").css("padding: 0 .5em; display: block;");
+
+    $("#div_msg_error").append("<div id='msg_error1'><strong>Alert: </strong><%= escape_javascript(flash[:error])  %></div>");
+  <%
+    flash[:error] = nil
+
+  end
+
+if (flash[:notice]) %>
+
+    $("#div_msg_notice").show();
+    $("#div_msg_notice").css("padding: 0 .5em; display: block;");
+    $("#div_msg_notice").append("<div id='msg_notice1'><strong>Warning: </strong><%= escape_javascript(flash[:notice])  %></div>");
+  <%
+    flash[:notice] = nil
+  end
+end
+
+
+%>
+
+
+
+
+

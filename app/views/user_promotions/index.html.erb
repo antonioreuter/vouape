@@ -1,0 +1,27 @@
+<h1>Listing user_promotions</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Promotion</th>
+    <th>Comments</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @user_promotions.each do |user_promotion| %>
+  <tr>
+    <td><%= user_promotion.user_id %></td>
+    <td><%= user_promotion.promotion_id %></td>
+    <td><%= user_promotion.comments %></td>
+    <td><%= link_to 'Show', user_promotion %></td>
+    <td><%= link_to 'Edit', edit_user_promotion_path(user_promotion) %></td>
+    <td><%= link_to 'Destroy', user_promotion, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New User promotion', new_user_promotion_path %>

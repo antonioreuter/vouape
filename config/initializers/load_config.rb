@@ -1,0 +1,1 @@
+MAP_KEY = YAML.load_file("#{Rails.root}/config/gmaps_api_key.yml")[Rails.env]
