@@ -64,27 +64,16 @@
 }
 
 #footer{
+    position:absolute;
     width:100%;
-    height:50px;
-    //background-color:blue;
+    bottom:0; /* stick to bottom */
+    background:#444444;
 }
 
 .clear{
     clear:both
 }
 
-#googlemap{
-    border: 1px solid #979797;
-    width: 100%;
-    height: 100%;
-    background-color: #FFFFFF;
-    padding: 10px;
-}
-
-
-#googlemap .info {
-width: 250px;
-}
 
 .textClass {
     color:#f6931f;
@@ -97,16 +86,17 @@ width: 250px;
     font-weight: bold
 }
 
-.error_message{
-    width: 50%;
-    height: 25px;
-    text-align: center;
-    margin-left: 30%;
-    margin-right: 10%;
+
+.ui-autocomplete {
+    background-color: white;
+    width: 300px;
+    border: 1px solid #cfcfcf;
+    list-style-type: none;
+    padding-left: 0px;
 }
 
-.ajaxStatus{
-    float:right;
-    height: 15px;
-    margin-left: 80%;
+#tabs { height: 90%; }
+#tab_content_wrap {
+    overflow: visible;
 }
+.ui-tabs-selected { margin-top: -3px !important; }

@@ -16,27 +16,40 @@
 
     <div id="slider-range-max"></div>
 
-
     <%= hidden_field_tag :distance, params[:distance] %>
-    <%= hidden_field_tag :ref_latitude %>
-    <%= hidden_field_tag :ref_longitude %>
-
+    <%= hidden_field_tag :ref_latitude%>
+    <%= hidden_field_tag :ref_longitude%>
 
   </div>
 
-
-
   <div align="right">
     <br/>
-    
+
     <%= submit_tag 'Pesquisar', :id => "btnPesquisar", :remote => true, :onclick => "codeAddress();"%>
   </div>
 <% end %>
 <br/>
 
-<div id="promotions">
-  
-    <%= render :partial => "promotion", :locals => {:promotions => @promotions} %>
+<div id="result_query">
+
+  <div id="tabs">
+    <ul>
+      <li><a href="#promotions">Promoções</a></li>
+      <li><a href="#google_directions">Direção</a></li>
+    </ul>
+
+
+    <div class="tab_container">
+      <div id="promotions" class="tab_content">
+        <%= render :partial => "promotion", :locals => {:promotions => @promotions} %>
+      </div>
+      <div id="google_directions" class="tab_content" style="overflow: auto;">
+        <div id="directions">
+
+        </div>
+      </div>
+    </div>
+  </div>
   
 </div>
 

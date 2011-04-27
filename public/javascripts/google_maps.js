@@ -1,3 +1,6 @@
+var geocoder;
+var directionDisplay;
+var directionsService;
 var map;
 var markersArray = [];
 var start_marker;
@@ -7,7 +10,12 @@ var bounds;
 $(function () {
     // Creating a MapOptions object with the required properties
 
-    
+
+    geocoder = new google.maps.Geocoder();
+
+    directionsService = new google.maps.DirectionsService();
+
+    directionsDisplay = new google.maps.DirectionsRenderer();
 
     var latlng = new google.maps.LatLng(-23.5869956, -46.634178);
 
@@ -47,9 +55,62 @@ $(function () {
     map = new google.maps.Map(document.getElementById('googlemap'), options);
 
 
+    //Direcao das rotas...
+    directionsDisplay.setMap(map);
+    directionsDisplay.setPanel(document.getElementById("directions"));
+
+    //autocomplete do endereco de localizacao.
+    $("#localizacao").autocomplete({
+        //This bit uses the geocoder to fetch address values
+        source: function(request, response) {
+            geocoder.geocode( {
+                'address': request.term
+            }, function(results, status) {
+                response($.map(results, function(item) {
+                    return {                        
+                        label:  item.address_components[1].long_name+", "+item.address_components[0].long_name+", "+item.address_components[2].long_name+", "+item.address_components[3].long_name+", "+item.address_components[5].long_name,
+                        value: item.address_components[1].long_name+", "+item.address_components[0].long_name+", "+item.address_components[2].long_name+", "+item.address_components[3].long_name+", "+item.address_components[5].long_name,
+                        latitude: item.geometry.location.lat(),
+                        longitude: item.geometry.location.lng()
+                        
+                    }
+                }));
+            })
+        },
+        //This bit is executed upon selection of an address
+        select: function(event, ui) {
+            $("#ref_latitude").val(ui.item.latitude);
+            $("#ref_longitude").val(ui.item.longitude);
+
+        }
+    });
+    
+
 });
 
 
+function showDirections(end_lat, end_lng){
+
+    var start_lat = $("#ref_latitude").val();
+    var start_lng = $("#ref_longitude").val();
+    var start_latlng = new google.maps.LatLng(start_lat, start_lng);
+
+    var end_latlng = new google.maps.LatLng(end_lat, end_lng);
+
+    
+
+    var request = {
+        origin:start_latlng,
+        destination:end_latlng,
+        travelMode: google.maps.DirectionsTravelMode.DRIVING
+    };
+    directionsService.route(request, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+            directionsDisplay.setDirections(result);
+        }
+    });
+    
+}
 
 
 

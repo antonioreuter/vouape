@@ -24,18 +24,22 @@ $(function() {
 
 
     $("#query_content form").ajaxSend(function(evt, request, settings){
-            $("input[type='submit']").attr("disabled","disabled");
-            $(".ajaxStatus").prepend("<img id='imgAjaxStatus' src='/images/ajax-loader.gif' title='status'/>");
+        $("input[type='submit']").attr("disabled","disabled");
+        $(".ajaxStatus").prepend("<img id='imgAjaxStatus' src='/images/ajax-loader.gif' title='status'/>");
             
-      }).ajaxStop(function(){
-           $("input[type='submit']").removeAttr("disabled");
-           $("#imgAjaxStatus").remove();
-      });
+    }).ajaxStop(function(){
+        $("input[type='submit']").removeAttr("disabled");
+        $("#imgAjaxStatus").remove();
+    });
 
-      $("#submit_promotion").click(function(){
-          alert("TESTE");
-          findPromotionsLocale();
-      });
+    $("#submit_promotion").click(function(){
+        alert("TESTE");
+        findPromotionsLocale();
+    });
+
+
+    //When page loads...
+    $('#tabs').tabs();
 
        
 });

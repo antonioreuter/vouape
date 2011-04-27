@@ -6,11 +6,17 @@
     <% for promotion in promotions   %>
       <h3><a href="#"><%= promotion.title %> - <%= number_to_currency(promotion.price) %></a></h3>
 
-      <div>
+      <div class="description_promotion">
         <p>
           <%=simple_format  promotion.description%>
         </p>
+        
+        <div class="bottom_promotion">
+          Direção: <input type="button" class="button_direction"
+                          onclick="showDirections(<%=promotion.latitude%>,<%=promotion.longitude%>)"/>
+        </div>
       </div>
+
     <% end  %>
   </div>
   <%= paginate promotions, :remote => true %>

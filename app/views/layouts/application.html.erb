@@ -4,61 +4,49 @@
     <%= csrf_meta_tag %>
 
     <title>Vouape</title>
-    <%= stylesheet_link_tag "scaffold", "vouape", "jquery-ui-1.8.11.custom" %>
+    <%= stylesheet_link_tag "estrutura", "componente", "jquery-ui-1.8.11.custom" %>
 
   </head>
-  <body id="vouape">
-
-
-
-    <div id="header">
-      header ############################
-      <div id="signup_login" style="visibility: hidden">
-        singin
-        <a href="#" class="link_acesso">login</a>
-        <a href="#" class="link_acesso">singin</a>
-      </div>
-    </div>
-
-
-    <div id="flash_error" class="error_message" >
-
-      <div id="div_msg_error" class='ui-widget ui-state-error ui-corner-all' style='padding: 0 .8em; padding-bottom: 0.8em ; display: none;'>
-        <p>
-          <span id="span_msg_error" class='ui-icon ui-icon-alert' style='float: left; margin-right: .8em;'>
-
-          </span><p/>
-        </p>
-      </div>
-
-      <div id="div_msg_notice" class="ui-state-highlight ui-corner-all" style='padding: 0 .8em; padding-bottom: 0.8em; display: none;'>
-        <p>
-          <span id="span_msg_notice" class="ui-icon ui-icon-info" style='float: left; margin-right: .8em;'>
-
-          </span><p/>
-        </p>
-      </div>
-
-    </div>
-
-    <br/>
+  <body>
     
-    <div id="ajaxStatus" class="ajaxStatus"></div>
-    <%= yield %>
-
-
-    <br class="clear"/>
-    <div id="footer">
-      footer
-    </div>
-
-
-    <div id="div_templates" style="visibility: hidden">
-      <div id="div_msg_error" class='ui-widget ui-state-error ui-corner-all' style='padding: 0 .5em;'>
-        <p><span class='ui-icon ui-icon-alert' style='float: left; margin-right: .3em;'></span>
-          <strong>Alert:</strong> <%= escape_javascript(flash[:error]) %></p>
+    <div id="vouape">
+      <div id="header"> 
+        header ############################
       </div>
+
+      <div id="flash_error" class="error_message" >
+
+        <div id="div_msg_error" class='ui-widget ui-state-error ui-corner-all' style='padding: 0 .8em; padding-bottom: 0.8em ; display: none;'>
+          <p>
+            <span id="span_msg_error" class='ui-icon ui-icon-alert' style='float: left; margin-right: .8em;'>
+
+            </span><p/>
+          </p>
+        </div>
+
+        <div id="div_msg_notice" class="ui-state-highlight ui-corner-all" style='padding: 0 .8em; padding-bottom: 0.8em; display: none;'>
+          <p>
+            <span id="span_msg_notice" class="ui-icon ui-icon-info" style='float: left; margin-right: .8em;'>
+
+            </span><p/>
+          </p>
+        </div>
+
+      </div>
+
+      <div id="main">
+        <div id="ajaxStatus" class="ajaxStatus"></div>
+        <%= yield %>
+      </div>
+
     </div>
+
+
+
+    <div id="footer" style="visibility: hidden; display: none;">
+      @vouape - developed by reuter s/a
+    </div>
+
 
 
     <%= javascript_include_tag :defaults %>

@@ -1,3 +1,6 @@
+#encoding: UTF-8
+
+
 class VouapeController < ApplicationController
 
   respond_to :html, :json, :js
@@ -28,8 +31,21 @@ class VouapeController < ApplicationController
   end
 
   def find_promotions
+   
     @location =  params[:localizacao]
+         puts '>>>>>>>>>>>>>>>>>> [BEFORE] Localizacao : '+@location
 
+    @location = @location.sub("R.", "Rua")
+    @location = @location.sub("Av.", "Avenida")
+
+    @location = @location.removeaccents
+    
+
+    puts '>>>>>>>>>>>>>>>>>> [AFTER] Localizacao : '+@location
+
+
+
+    
     @page = "1"
     if params[:page]
       @page = params[:page]
@@ -37,6 +53,8 @@ class VouapeController < ApplicationController
   
     begin
 
+       #@promotions = Promotion.find(:all, :within => params[:distance], :origin => newPromotion).page(@page).per(5)
+      #@promotions = Promotion.origin(@location, :within => params[:distance]).page(@page).per(5)
       @promotions = Promotion.origin(@location, :within => params[:distance]).page(@page).per(5)
       if (@promotions == nil || @promotions.size == 0)
         puts ">>>>>>>>>>>>>>>>>> Voce esta sem sorte. Nao temos promocoes na vizinhanca"
